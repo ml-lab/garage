@@ -1,4 +1,4 @@
-"""Resize wrapper for gym env."""
+"""Resize wrapper for gym.Env."""
 import gym
 from gym.spaces import Box
 import numpy as np

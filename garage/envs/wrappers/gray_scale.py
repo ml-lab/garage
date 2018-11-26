@@ -2,8 +2,7 @@
 import gym
 from gym.spaces import Box
 import numpy as np
-
-# from skimage import color
+from skimage import color
 
 
 class GrayScale(gym.Wrapper):
@@ -23,8 +22,7 @@ class GrayScale(gym.Wrapper):
             0.0, 1.0, shape=[width, height], dtype=np.float32)
 
     def _observation(self, obs):
-        # obs = color.rgb2gray(obs) / 255.0
-        obs = np.dot(obs[:, :, :3], [0.299, 0.587, 0.114]) / 255.0
+        obs = color.rgb2gray(np.asarray(obs, dtype=np.uint8))
         return obs
 
     def reset(self):
